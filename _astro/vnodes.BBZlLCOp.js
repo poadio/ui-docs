@@ -1,0 +1,1 @@
+import{i as e,r as t}from"./runtime-dom.esm-bundler.C6iPY-JI.js";function n(r){let i=[];for(let a of r??[])a.type===e&&Array.isArray(a.children)?i.push(...n(a.children)):a.type!==t&&i.push(a);return i}export{n as t};

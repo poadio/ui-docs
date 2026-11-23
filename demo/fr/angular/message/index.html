@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Message — angular</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Poppins:wght@400;500;600&display=swap"><script>
+      (function () {
+        var s = null;
+        try { s = localStorage.getItem('poad-theme'); } catch (e) {}
+        var dark = s ? s === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('theme-dark', dark);
+        addEventListener('message', function (e) {
+          if (e.origin === location.origin && e.data && e.data.type === 'poad-theme') document.documentElement.classList.toggle('theme-dark', !!e.data.dark);
+        });
+        // Hauteur annoncée à la page parente (l'iframe prend la taille de la démo).
+        function report() {
+          var h = document.documentElement.getBoundingClientRect().height;
+          if (parent !== window) parent.postMessage({ type: 'poad-demo-size', height: h }, location.origin);
+        }
+        addEventListener('DOMContentLoaded', function () {
+          new ResizeObserver(report).observe(document.body);
+          report();
+        });
+      })();
+    </script><link rel="stylesheet" href="/_astro/_id_.DmcpCfFB.css"><link rel="stylesheet" href="/_astro/data.DoPGbQz4.css"></head><body data-demo="message" data-lang="fr" data-kind="angular"><div id="demo" class="demo-root"></div><script type="module" src="/ng/main.js"></script></body></html>

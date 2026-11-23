@@ -1,0 +1,1 @@
+function e(e){return[`poad-divider`,`align-${e.align??`center`}`,e.vertical&&`is-vertical`,e.dashed&&`is-dashed`].filter(Boolean).join(` `)}function t(e){return{role:`separator`,"aria-orientation":e.vertical?`vertical`:`horizontal`}}export{t as n,e as t};

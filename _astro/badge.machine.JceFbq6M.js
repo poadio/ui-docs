@@ -1,0 +1,1 @@
+function e(e,t=99){return e==null?``:typeof e==`number`&&e>t?`${t}+`:String(e)}var t=t=>t.dot?``:e(t.value,t.max??99);function n(e){return[`poad-badge`,`sev-${e.severity??`danger`}`,e.dot&&`is-dot`,e.size===`sm`&&`size-sm`].filter(Boolean).join(` `)}var r=e=>({"aria-label":e.ariaLabel||null});export{t as n,r,n as t};

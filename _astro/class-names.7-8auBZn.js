@@ -1,0 +1,1 @@
+function e(e,t={},n){let r=[e];for(let[e,n]of Object.entries(t))n&&r.push(e);return n&&r.push(n),r.join(` `)}export{e as t};

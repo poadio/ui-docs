@@ -1,0 +1,1 @@
+function e(e){if(!e)return!1;let t=e.ownerDocument?.defaultView?.getComputedStyle(e).direction;return t===`rtl`||t===`ltr`?t===`rtl`:e.closest(`[dir]`)?.getAttribute(`dir`)?.toLowerCase()===`rtl`}export{e as t};

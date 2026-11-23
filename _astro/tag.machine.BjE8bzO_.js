@@ -1,0 +1,1 @@
+function e(e){return[`poad-tag`,`sev-${e.severity??`primary`}`,e.size===`sm`&&`size-sm`,e.rounded&&`is-rounded`,e.dot&&`has-dot`].filter(Boolean).join(` `)}var t=e=>e.size===`sm`?10:12;export{t as n,e as t};
