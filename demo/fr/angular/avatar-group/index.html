@@ -15,6 +15,33 @@
         addEventListener('DOMContentLoaded', function () {
           new ResizeObserver(report).observe(document.body);
           report();
+          // État du montage annoncé à la page parente (indicateur de chargement) : `body[data-ready]` est posé par
+          // l'amorce de chaque rendu, Angular compris ('true' ou 'error').
+          function ready() {
+            var st = document.body.dataset.ready;
+            if (st && parent !== window) parent.postMessage({ type: 'poad-demo-ready', state: st }, location.origin);
+            return !!st;
+          }
+          if (!ready()) {
+            var mo = new MutationObserver(function () { if (ready()) mo.disconnect(); });
+            mo.observe(document.body, { attributes: true, attributeFilter: ['data-ready'] });
+          }
+        });
+        // Un script de la démo qui ne se charge pas (paquet absent après un déploiement…) : la page parente propose
+        // de recharger au lieu d'un cadre vide.
+        addEventListener('error', function (e) {
+          var t = e.target;
+          if (t && t.tagName === 'SCRIPT' && parent !== window) parent.postMessage({ type: 'poad-demo-ready', state: 'error' }, location.origin);
+        }, true);
+        // Réglage en direct de quelques jetons depuis la page parente (bouton « Jetons » de la démo).
+        addEventListener('message', function (e) {
+          if (e.origin !== location.origin || !e.data || e.data.type !== 'poad-tokens') return;
+          var vars = e.data.vars || {};
+          for (var k in vars) {
+            if (k.indexOf('--poad-') !== 0) continue;
+            if (vars[k]) document.documentElement.style.setProperty(k, vars[k]);
+            else document.documentElement.style.removeProperty(k);
+          }
         });
       })();
     </script><link rel="stylesheet" href="/_astro/_id_.Dg6wp-Vg.css"><link rel="stylesheet" href="/_astro/data.DoPGbQz4.css"></head><body data-demo="avatar-group" data-lang="fr" data-kind="angular"><div id="demo" class="demo-root"></div><script type="module" src="/ng/main.js"></script></body></html>
