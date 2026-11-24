@@ -1,0 +1,1 @@
+function e(e){return[`poad-fieldset`,e.collapsed&&`is-collapsed`,e.toggleable&&`is-toggleable`].filter(Boolean).join(` `)}var t=e=>`${e}-c`;export{t as n,e as t};

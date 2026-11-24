@@ -1,0 +1,1 @@
+function e(e,t){return t?!e:null}var t=(e,t)=>({type:`button`,"aria-expanded":t?`false`:`true`,"aria-controls":e}),n=(e,t)=>({id:e,inert:t?``:null});export{n,e as r,t};

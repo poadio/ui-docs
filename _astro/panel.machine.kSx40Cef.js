@@ -1,0 +1,1 @@
+function e(e){return[`poad-panel`,e.collapsed&&`is-collapsed`,e.flat&&`is-flat`,e.variant===`outline`&&`var-outline`,e.headless&&`is-headless`].filter(Boolean).join(` `)}function t(e){return!e.header&&!e.toggleable&&!e.customHeader}var n=e=>({region:`${e}-c`,title:`${e}-t`});export{t as n,n as r,e as t};

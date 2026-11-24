@@ -1,0 +1,1 @@
+function e(e){return[`poad-card`,e.hoverable&&`is-hoverable`,e.flat&&`is-flat`,e.compact&&`is-compact`].filter(Boolean).join(` `)}var t=e=>e||null;function n(e){return!!(e.customHeader||e.header||e.subheader||e.actions)}export{n,t as r,e as t};
