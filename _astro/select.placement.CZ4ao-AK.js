@@ -1,0 +1,1 @@
+var e=[{side:`bottom`,align:`start`},{side:`top`,align:`start`},{side:`bottom`,align:`end`},{side:`top`,align:`end`}];export{e as t};

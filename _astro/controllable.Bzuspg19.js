@@ -1,0 +1,1 @@
+import{n as e}from"./client.CTAV3VX9.js";var t=e();function n(e,n){let[r,i]=(0,t.useState)(n),a=e!==void 0;return[a?e:r,e=>{a||i(e)}]}export{n as t};
