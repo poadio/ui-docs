@@ -1,0 +1,1 @@
+var s=(o,t)=>o>t,e=o=>o?"poad-scroll-top is-visible":"poad-scroll-top",r=o=>({type:"button",tabindex:o?0:-1}),p=(o,t)=>t?"auto":o??"smooth",l="(prefers-reduced-motion: reduce)";export{s as a,e as b,r as c,p as d,l as e};

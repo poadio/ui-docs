@@ -1,0 +1,1 @@
+var e=e=>e?`poad-block-overlay is-full`:`poad-block-overlay`,t={role:`status`,"aria-live":`polite`},n=e=>e?36:28,r=e=>({"aria-busy":e?`true`:null}),i=e=>e?`poad-block is-blocked`:`poad-block`,a=e=>({inert:e?``:null});export{t as a,e as i,a as n,n as o,r,i as t};
