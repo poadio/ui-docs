@@ -1,0 +1,47 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Row actions — vanilla</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Poppins:wght@400;500;600&display=swap"><script>
+      (function () {
+        var s = null;
+        try { s = localStorage.getItem('poad-theme'); } catch (e) {}
+        var dark = s ? s === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('theme-dark', dark);
+        addEventListener('message', function (e) {
+          if (e.origin === location.origin && e.data && e.data.type === 'poad-theme') document.documentElement.classList.toggle('theme-dark', !!e.data.dark);
+        });
+        // Hauteur annoncée à la page parente (l'iframe prend la taille de la démo).
+        function report() {
+          var h = document.documentElement.getBoundingClientRect().height;
+          if (parent !== window) parent.postMessage({ type: 'poad-demo-size', height: h }, location.origin);
+        }
+        addEventListener('DOMContentLoaded', function () {
+          new ResizeObserver(report).observe(document.body);
+          report();
+          // État du montage annoncé à la page parente (indicateur de chargement) : `body[data-ready]` est posé par
+          // l'amorce de chaque rendu, Angular compris ('true' ou 'error').
+          function ready() {
+            var st = document.body.dataset.ready;
+            if (st && parent !== window) parent.postMessage({ type: 'poad-demo-ready', state: st }, location.origin);
+            return !!st;
+          }
+          if (!ready()) {
+            var mo = new MutationObserver(function () { if (ready()) mo.disconnect(); });
+            mo.observe(document.body, { attributes: true, attributeFilter: ['data-ready'] });
+          }
+        });
+        // Un script de la démo qui ne se charge pas (paquet absent après un déploiement…) : la page parente propose
+        // de recharger au lieu d'un cadre vide.
+        addEventListener('error', function (e) {
+          var t = e.target;
+          if (t && t.tagName === 'SCRIPT' && parent !== window) parent.postMessage({ type: 'poad-demo-ready', state: 'error' }, location.origin);
+        }, true);
+        // Réglage en direct de quelques jetons depuis la page parente (bouton « Jetons » de la démo).
+        addEventListener('message', function (e) {
+          if (e.origin !== location.origin || !e.data || e.data.type !== 'poad-tokens') return;
+          var vars = e.data.vars || {};
+          for (var k in vars) {
+            if (k.indexOf('--poad-') !== 0) continue;
+            if (vars[k]) document.documentElement.style.setProperty(k, vars[k]);
+            else document.documentElement.style.removeProperty(k);
+          }
+        });
+      })();
+    </script><link rel="stylesheet" href="/_astro/_id_.CyPnbXEG.css"><link rel="stylesheet" href="/_astro/data.DoPGbQz4.css"></head><body data-demo="table-row-actions" data-lang="en" data-kind="vanilla"><div id="demo" class="demo-root"></div><script type="module" src="/_astro/BootVanilla.astro_astro_type_script_index_0_lang.CMIqzhGe.js"></script></body></html>
