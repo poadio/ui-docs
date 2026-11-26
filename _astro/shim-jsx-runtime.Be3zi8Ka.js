@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime.XKyaHtl9.js";import{n as t}from"./BootReact.astro_astro_type_script_index_0_lang.QcWG4DtU.js";import{n}from"./track.CSEPjx07.js";var r=e(t()),i=r.Fragment,a=(e,t,i)=>r.jsx(e,n(e,t),i),o=(e,t,i)=>r.jsxs(e,n(e,t),i);export{a as n,o as r,i as t};

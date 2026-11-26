@@ -9,7 +9,7 @@
 <script>
 // Ancienne page d'un composant → sa section dans la page groupée ; ?fw= gardé, ancienne ancre traduite.
 (function () {
-  var parts = ["demo","usage","props","events","slots","methods","keyboard","a11y","more","i18n","styles","tokens","tokens-how"];
+  var parts = ["demo","usage","store","props","events","slots","methods","keyboard","a11y","more","i18n","styles","tokens","tokens-how"];
   var h = location.hash.slice(1);
   location.replace("/en/components/map/" + location.search + '#' + (h && parts.indexOf(h) >= 0 ? "map-basemaps" + '-' + h : "map-basemaps"));
 })();
