@@ -1,0 +1,1 @@
+var e=Symbol(`poad.storeRegistry`);export{e as t};
